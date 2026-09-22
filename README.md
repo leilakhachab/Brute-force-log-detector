@@ -16,4 +16,4 @@ Place your log file as `server.log` in the same directory and run:
 Outputs each flagged IP and its number of failed attempts.
 
 ## Example log line
-    203.0.113.42 - - [12/Aug/2026:10:15:32] "POST /login HTTP/1.1" 401
+    198.51.100.23 - - [16/Aug/2026:09:14:02] "GET /index.html HTTP/1.1" 200 1024
