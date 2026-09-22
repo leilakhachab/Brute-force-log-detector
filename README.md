@@ -3,7 +3,7 @@ Detects brute-force login attempts by reading a server log for suspicious IPs wi
 
 ## How it works
 Each server log line is checked with a regular expression to extract the 
-client IP, the requested route, and the HTTP status code. Requests 
+client IP and the HTTP status code. Requests 
 that return `401 Unauthorized` are counted for each IP address. Any IP address
 with 3 or more failed attempts is flagged as a probable brute-force 
 attempt.
