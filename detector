@@ -1,0 +1,23 @@
+import re
+from collections import defaultdict
+
+ipDictionary = defaultdict(int)
+THRESHOLD = 3
+
+with open("server.log") as file:
+    for line in file:
+        log = re.search(r"(\d+\.\d+\.\d+\.\d+).*?(.*?)\s+(\d{3})", line)
+        if not log:
+            continue
+
+        ip = log.group(1)
+        request = log.group(2)
+        status = log.group(3)
+
+        #401 = failed authentication attempt
+        if status == "401":
+            ipDictionary[ip] += 1
+
+for ip, count in ipDictionary.items():
+    if count >= THRESHOLD:
+        print(f"Brute force attack detected from IP: {ip} ({count} failed attempts)")
